@@ -15,18 +15,18 @@ function markerSize(magnitude) {
   
 //Create a function for Eathquake color based on depth
 function markerColor(depth) {
-    if (depth <= 100) {
-        return "#e5c0be"
-    } else if (depth <= 200) {
-        return "#ebbdba"
-    } else if (depth <= 300) {
-        return "#ee9e98"
-    } else if (depth <= 400) {
-        return "#ef8d86"
-    } else if (depth <= 500) {
-        return "#e76f66"
+    if (depth < 10) {
+        return "#e4ceeb"
+    } else if (depth < 30) {
+        return "#c99dd8"
+    } else if (depth < 50) {
+        return "#bc85ce"
+    } else if (depth < 70) {
+        return "#ae6cc4"
+    } else if (depth < 90) {
+        return "#a154bb"
     } else {
-        return "#f24235"
+        return "#790b9e"
     }
 };
 
@@ -101,7 +101,7 @@ function createMap(earthquakes) {
   let legend = L.control({ position: "bottomright" });
   legend.onAdd = function() {
     let div = L.DomUtil.create("div", "info legend");
-    let depths = [0,100, 200, 300, 500]
+    let depths = [-10,10, 30, 50, 70,90]
     let labels = [];
 
 
